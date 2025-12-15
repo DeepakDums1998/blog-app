@@ -1,0 +1,25 @@
+// Firestore Security Rules (BEGINNER / LEARNING MODE)
+// ---------------------------------------------------
+// IMPORTANT:
+// These rules allow anyone on the internet to read and write your database.
+// This is NOT safe for a real app.
+//
+// Why do we allow it here?
+// - This project is focused on learning CRUD + serverless basics WITHOUT authentication.
+//
+// What should you do in real projects?
+// - Add Firebase Authentication
+// - Restrict write access to admins only
+// - Validate data and ownership
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+
+
+
