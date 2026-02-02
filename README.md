@@ -1,4 +1,4 @@
-# Personal Blog & Content Management Platform
+# Personal Blog & Content Management Platform - SkillDizre
 
 Beginner-friendly full-stack project:
 
