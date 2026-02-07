@@ -1,6 +1,7 @@
 {
   "projects": {
-    "dev": "blog-app-6509b"
+    "dev": "blog-app-6509b",
+    "blog-app": "blog-app-aefba"
   },
   "targets": {},
   "etags": {}

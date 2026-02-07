@@ -26,6 +26,7 @@ const { onRequest } = require("firebase-functions/v2/https");
 const admin = require("firebase-admin");
 const express = require("express");
 const cors = require("cors");
+const { FieldValue } = require("firebase-admin/firestore");
 
 // Admin SDK allows this backend to securely talk to Firestore.
 // In production, Firebase automatically provides credentials.
@@ -129,7 +130,7 @@ app.post("/createPost", async (req, res) => {
       author: String(author),
       // Use serverTimestamp so the backend (not the browser) sets the time.
       // This is a common Firestore pattern.
-      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      createdAt: FieldValue.serverTimestamp(),
     });
 
     return res.status(201).json({ id: ref.id });
@@ -198,7 +199,7 @@ app.delete("/deletePost", async (req, res) => {
  * Your final URLs will look like:
  *   https://<region>-<projectId>.cloudfunctions.net/api/getPosts
  */
-exports.api = onRequest(app);
+exports.api = onRequest({ cors: true }, app);
 
 
 
